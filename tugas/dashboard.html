@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            margin: 0;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .sidebar ul li a i {
+            margin-right: 10px;
+        }
+
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        canvas {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li><a href="#"><i class="fas fa-pencil-alt"></i> Posts</a></li>
+            <li><a href="#"><i class="fas fa-comments"></i> Comments</a></li>
+            <li><a href="#"><i class="fas fa-users"></i> Visitors</a></li>
+            <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h1>Dashboard Overview</h1>
+        <canvas id="dashboardChart"></canvas>
+    </div>
+
+    <script>
+        // Simulasi data untuk grafik
+        const data = {
+            posts: [12, 19, 3, 5, 2, 3, 15, 6, 7, 8, 9, 10],
+            comments: [5, 2, 3, 10, 15, 5, 7, 12, 8, 6, 4, 9],
+            visitors: [20, 25, 15, 30, 28, 35, 40, 22, 18, 27, 30, 33]
+        };
+
+        const labels = Array.from({ length: 12 }, (_, i) => `Bulan ${i + 1}`);
+        const ctx = document.getElementById('dashboardChart').getContext('2d');
+
+        const chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: 'Postings',
+                        data: data.posts,
+                        backgroundColor: 'yellow',
+                        borderColor: 'yellow',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Komentar',
+                        data: data.comments,
+                        backgroundColor: 'blue',
+                        borderColor: 'blue',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Pengunjung',
+                        data: data.visitors,
+                        backgroundColor: 'green',
+                        borderColor: 'green',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

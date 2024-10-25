@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=width-device, initial-scale=1">
+	<title>login facelook</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: sans-serif;
+			background-image: url('part1.jpg');
+			background-size: cover;		
+		}
+		form {
+			background: white;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			width: 300px;
+			padding: 20px 25px;
+			display: flex;
+			flex-direction: column;
+			border-radius: 5px;
+		}
+		h1 {
+			text-align: center;
+			padding: 10px;
+			margin: 10px; 
+			border-bottom: 2px solid lightgrey;
+		}
+		label {
+			padding: 10px 0px 0px 0px; 
+			font-size: 1em;
+		}
+		input {
+			padding: 10px;
+			font-size: 1em;
+			margin: 5px 0px;
+			outline: none;
+			border: 2px solid lightgrey;
+			border-radius: 5px;
+		}
+		button {
+			padding: 10px;
+			border: 2px solid orange;
+			background: orange;
+			color: white;
+			border-radius: 5px;
+			font-size: 1em;
+			margin: 15px 0px;
+		}
+		button:hover {
+			border: 2px solid lightgrey;
+			color: white;
+			background: lightgrey;
+		}
+		a {
+			margin: 5px;
+		}
+		.daftar {
+			background: orange;
+			color: white;
+			padding: 10px;
+			border-radius: 5px;
+			text-decoration: none;
+			border: 2px solid orange;
+			font-size: 1em;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<form>
+		<h1>login</h1>
+		<label for="username">Username :</label>
+		<input type="text" name="username" id="username" required>
+		<label for="password">Password :</label>
+		<input type="password" name="password" id="password" required>
+		<a href="#">Lupa Password?</a>
+		<button name="login">Login</button>
+		<center>Or</center>
+		<a href="#" class="daftar">Sign Up</a>
+	</form>
+</body>
+</html>
